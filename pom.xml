@@ -26,6 +26,12 @@
         <developerConnection>scm:git:git@github.com:${github.account}/game-of-life.git</developerConnection>
         <url>scm:git:git@github.com:${github.account}/game-of-life.git</url>
     </scm>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus</id>
+            <url>http://localhost:8081/nexus/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
     <build>
         <plugins>
             <plugin>
@@ -103,6 +109,17 @@
                 <version>2.5</version>
                 <configuration>
                     <preparationGoals>clean install</preparationGoals>
+                </configuration>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.3</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>nexus</serverId>
+                    <nexusUrl>http://localhost:8081/nexus/</nexusUrl>
                 </configuration>
             </plugin>
 
