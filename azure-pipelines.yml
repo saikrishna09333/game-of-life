@@ -25,13 +25,13 @@ steps:
     provider: 'azurerm'
     command: 'init'
     backendServiceArm: 'Visual Studio Enterprise Subscription – MPN(4d6a8172-06bd-487f-b993-bbe6a2fcc50d)'
-    - task: TerraformTaskV1@0
-      inputs:
-        provider: 'azurerm'
-        command: 'plan'
-        - task: TerraformTaskV1@0
-          inputs:
-            provider: 'azurerm'
-            command: 'apply'
-            commandOptions: '-auto-approve'
-            environmentServiceNameAzureRM: 'Visual Studio Enterprise Subscription – MPN(1)(4d6a8172-06bd-487f-b993-bbe6a2fcc50d)'
+- task: TerraformTaskV1@0
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+- task: TerraformTaskV1@0
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    commandOptions: '-auto-approve'
+    environmentServiceNameAzureRM: 'Visual Studio Enterprise Subscription – MPN(1)(4d6a8172-06bd-487f-b993-bbe6a2fcc50d)'
